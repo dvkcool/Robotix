@@ -27,7 +27,7 @@ constructor(props) {
 
 
 
-fetch('https://reactnativecode.000webhostapp.com/submit_user_info.php', {
+fetch('http://robotixnitrr.org/submit_user_info.php', {
   method: 'POST',
   headers: {
     'Accept': 'application/json',
@@ -134,4 +134,5 @@ borderWidth: 1,
 
 });
 
-AppRegistry.registerComponent('MainProject', () => MainProject);
+//AppRegistry.registerComponent('MainProject', () => MainProject);
+export default MainProject;
