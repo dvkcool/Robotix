@@ -1,7 +1,7 @@
 <?php
 
 // Importing DBConfig.php file.
-include './../DBConfig.php';
+include 'DBConfig.php';
 
 // Creating connection.
  $con = mysqli_connect($HostName,$HostUser,$HostPass,$DatabaseName);

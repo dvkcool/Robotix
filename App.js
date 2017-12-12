@@ -1,138 +1,118 @@
 import React, { Component } from 'react';
 
-import { AppRegistry, StyleSheet, TextInput, View, Alert, Button } from 'react-native';
+import { AppRegistry, StyleSheet, ActivityIndicator, ListView, Text, View, Alert,Image, Platform} from 'react-native';
 
-class MainProject extends Component {
+class Mainproject extends Component {
 
-constructor(props) {
+ constructor(props) {
+   super(props);
+   this.state = {
+     isLoading: true
+   }
+ }
 
-    super(props)
+GetItem (flower_name) {
 
-    this.state = {
+ Alert.alert(flower_name);
 
-      TextInputName: '',
-      TextInputEmail: '',
-      TextInputPhoneNumber: ''
-
-    }
-
-  }
-
-  InsertDataToServer = () =>{
+ }
 
 
- const { TextInputName }  = this.state ;
- const { TextInputEmail }  = this.state ;
- const { TextInputPhoneNumber }  = this.state ;
+ componentDidMount() {
+
+   return fetch('http://robotixnitrr.org/workshop.php')
+     .then((response) => response.json())
+     .then((responseJson) => {
+       let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+       this.setState({
+         isLoading: false,
+         dataSource: ds.cloneWithRows(responseJson),
+       }, function() {
+         // In this block you can do something with new state.
+       });
+     })
+     .catch((error) => {
+       console.error(error);
+     });
+ }
+
+ ListViewItemSeparator = () => {
+   return (
+     <View
+       style={{
+         height: .5,
+         width: "100%",
+         backgroundColor: "#000",
+       }}
+     />
+   );
+ }
 
 
+ render() {
+   if (this.state.isLoading) {
+     return (
+       <View style={{flex: 1, paddingTop: 20}}>
+         <ActivityIndicator />
+       </View>
+     );
+   }
 
-fetch('http://robotixnitrr.org/submit_user_info.php', {
-  method: 'POST',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
+   return (
 
-    name: TextInputName,
+     <View style={styles.MainContainer}>
 
-    email: TextInputEmail,
+       <ListView
 
-    phone_number: TextInputPhoneNumber
+         dataSource={this.state.dataSource}
 
-  })
+         renderSeparator= {this.ListViewItemSeparator}
 
-}).then((response) => response.json())
-      .then((responseJson) => {
+         renderRow={(rowData) =>
 
-// Showing response message coming from server after inserting records.
-        Alert.alert(responseJson);
+        <View style={{flex:1, flexDirection: 'row'}}>
 
-      }).catch((error) => {
-        console.error(error);
-      });
+          <Image source = {{ uri: rowData.image }} style={styles.imageViewContainer} />
 
+          <Text onPress={this.GetItem.bind(this, rowData.name)} style={styles.textViewContainer} >{rowData.name}</Text>
 
-  }
+        </View>
+         }
+       />
 
-  render() {
-    return (
-
-<View style={styles.MainContainer}>
-
-        <TextInput
-
-          // Adding hint in Text Input using Place holder.
-          placeholder="Enter Name"
-
-          onChangeText={TextInputName => this.setState({TextInputName})}
-
-          // Making the Under line Transparent.
-          underlineColorAndroid='transparent'
-
-          style={styles.TextInputStyleClass}
-        />
-
-        <TextInput
-
-          // Adding hint in Text Input using Place holder.
-          placeholder="Enter Email"
-
-          onChangeText={TextInputEmail => this.setState({TextInputEmail})}
-
-          // Making the Under line Transparent.
-          underlineColorAndroid='transparent'
-
-          style={styles.TextInputStyleClass}
-        />
-
-        <TextInput
-
-          // Adding hint in Text Input using Place holder.
-          placeholder="Enter Phone Number"
-
-          onChangeText={TextInputPhoneNumber => this.setState({TextInputPhoneNumber})}
-
-          // Making the Under line Transparent.
-          underlineColorAndroid='transparent'
-
-          style={styles.TextInputStyleClass}
-        />
-
-        <Button title="Insert Text Input Data to Server" onPress={this.InsertDataToServer} color="#2196F3" />
-
-
-
-</View>
-
-    );
-  }
+     </View>
+   );
+ }
 }
 
 const styles = StyleSheet.create({
 
 MainContainer :{
 
+// Setting up View inside content in Vertically center.
 justifyContent: 'center',
 flex:1,
-margin: 10
+margin: 5,
+paddingTop: (Platform.OS === 'ios') ? 20 : 0,
+
 },
 
-TextInputStyleClass: {
+imageViewContainer: {
+width: '50%',
+height: 100 ,
+margin: 10,
+borderRadius : 10
 
-textAlign: 'center',
-marginBottom: 7,
-height: 40,
-borderWidth: 1,
-// Set border Hex Color Code Here.
- borderColor: '#FF5722',
+},
 
-// Set border Radius.
- //borderRadius: 10 ,
+textViewContainer: {
+
+  textAlignVertical:'center',
+  width:'50%',
+  padding:20
+
 }
 
 });
 
-//AppRegistry.registerComponent('MainProject', () => MainProject);
-export default MainProject;
+export default Mainproject;
