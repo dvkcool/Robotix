@@ -1,137 +1,122 @@
 import React, { Component } from 'react';
-import {Container, Header, Left, Right, Content, Body, Thumbnail, Title,
- Icon, Button, Card, CardItem, Text } from 'native-base';
-import { Image, Dimensions, TouchableHighlight, View} from 'react-native';
-import {AppLoading } from 'expo';
-export default class HomeScreen extends Component {
-  state = {
-    fontLoaded: false,
-  };
 
-  async componentWillMount() {
-  await Expo.Font.loadAsync({
-    'Roboto': require('native-base/Fonts/Roboto.ttf'),
-    'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
-  });
-  this.setState({ fontLoaded: true });
-}
-render() {
-  if (!this.state.fontLoaded) {
-  return (
-    <AppLoading
-      startAsync={this.componentWillMount}
-      onFinish={() => this.setState({ fontLoaded: true })}
-      onError={console.warn}
-    />
-  );
-}
-else{
-  return (
-        <Container>
-           <Content>
-           <Card style={{flex: 1}}>
-               <CardItem>
-                 <Left>
-                   <Thumbnail source={require("./pics/hasura.png")} />
-                   <Body>
-                     <Text>Hasura</Text>
-                     <Text note>@HasuraHQ, December 8, 2017</Text>
-                   </Body>
-                 </Left>
-               </CardItem>
-               <CardItem style={{paddingLeft: 70, paddingTop:0}}>
-                 <Body>
-                   <Text>
-                      Hi Twitterverse! Hasura hub is up on @ProductHunt today (currently at #2 😍). Do check us out on and show us some love (aka upvotes🤪). #ProductHunt #appdev #webdev #MobileAppDevelopment
-                   </Text>
-                   <Image source={require("./pics/hasuratweet.png")} style={{height: 200, width: Dimensions.get('window').width, flex: 1}}/>
-                 </Body>
-               </CardItem>
-               <CardItem style={{paddingLeft: 70, paddingTop:0}}>
-                  <Icon name="ios-text-outline" /><Text>12          </Text>
-                  <Icon name="ios-repeat" /><Text>25          </Text>
-                  <Icon name="ios-heart-outline" /><Text>20         </Text>
-                  <Icon name="ios-mail-outline" /><Text>21          </Text>
-               </CardItem>
-             </Card>
-             <Card style={{flex: 1}}>
-                 <CardItem>
-                   <Left>
-                     <Thumbnail source={require("./pics/hasura.png")} />
-                     <Body>
-                       <Text>Hasura</Text>
-                       <Text note>@HasuraHQ, December 8, 2017</Text>
-                     </Body>
-                   </Left>
-                 </CardItem>
-                 <CardItem style={{paddingLeft: 70, paddingTop:0}}>
-                   <Body>
-                     <Text>
-                     This is one of the funnest events that we're partnering with🤡. Can't wait to see what gets built at @supersillyhack happening at @hubsg tomorrow! #hackathon #Singapore #hackitonhasura
-                     </Text>
-                     <Image source={require("./pics/hasuratwe2.png")} style={{height: 200, width: Dimensions.get('window').width, flex: 1}}/>
-                   </Body>
-                 </CardItem>
-                 <CardItem style={{paddingLeft: 70, paddingTop:0}}>
-                    <Icon name="ios-text-outline" /><Text>12          </Text>
-                    <Icon name="ios-repeat" /><Text>25            </Text>
-                    <Icon name="ios-heart-outline" /><Text>20        </Text>
-                    <Icon name="ios-mail-outline" /><Text>21         </Text>
-                 </CardItem>
-               </Card>
-               <Card style={{flex: 1}}>
-                   <CardItem>
-                     <Left>
-                       <Thumbnail source={require("./pics/hasura.png")} />
-                       <Body>
-                         <Text>Hasura</Text>
-                         <Text note>@HasuraHQ, December 8, 2017</Text>
-                       </Body>
-                     </Left>
-                   </CardItem>
-                   <CardItem style={{paddingLeft: 70, paddingTop:0}}>
-                     <Body>
-                       <Text>
-                          Hi Twitterverse! Hasura hub is up on @ProductHunt today (currently at #2 😍). Do check us out on and show us some love (aka upvotes🤪). #ProductHunt #appdev #webdev #MobileAppDevelopment
-                       </Text>
-                       <Image source={require("./pics/hasuratweet.png")} style={{height: 200, width: Dimensions.get('window').width, flex: 1}}/>
-                     </Body>
-                   </CardItem>
-                   <CardItem style={{paddingLeft: 70, paddingTop:0}}>
-                      <Icon name="ios-text-outline" /><Text>12          </Text>
-                      <Icon name="ios-repeat" /><Text>25          </Text>
-                      <Icon name="ios-heart-outline" /><Text>20         </Text>
-                      <Icon name="ios-mail-outline" /><Text>21          </Text>
-                   </CardItem>
-                 </Card>
-                 <Card style={{flex: 1}}>
-                     <CardItem>
-                       <Left>
-                         <Thumbnail source={require("./pics/hasura.png")} />
-                         <Body>
-                           <Text>Hasura</Text>
-                           <Text note>@HasuraHQ, December 8, 2017</Text>
-                         </Body>
-                       </Left>
-                     </CardItem>
-                     <CardItem style={{paddingLeft: 70, paddingTop:0}}>
-                       <Body>
-                         <Text>
-                            Hi Twitterverse! Hasura hub is up on @ProductHunt today (currently at #2 😍). Do check us out on and show us some love (aka upvotes🤪). #ProductHunt #appdev #webdev #MobileAppDevelopment
-                         </Text>
-                         <Image source={require("./pics/hasuratweet.png")} style={{height: 200, width: Dimensions.get('window').width, flex: 1}}/>
-                       </Body>
-                     </CardItem>
-                     <CardItem style={{paddingLeft: 70, paddingTop:0}}>
-                        <Icon name="ios-text-outline" /><Text>12          </Text>
-                        <Icon name="ios-repeat" /><Text>25          </Text>
-                        <Icon name="ios-heart-outline" /><Text>20         </Text>
-                        <Icon name="ios-mail-outline" /><Text>21          </Text>
-                     </CardItem>
-                   </Card>
-           </Content>
-        </Container>);
+import { AppRegistry, StyleSheet, ActivityIndicator,
+  ListView, Dimensions, View, Alert,Image, Platform} from 'react-native';
 
-}
+import {Thumbnail, Container, Content, Left, Right, Text, Body, Card, CardItem} from 'native-base';
+class Mainproject extends Component {
+
+ constructor(props) {
+   super(props);
+   this.state = {
+     isLoading: true
    }
-  }
+ }
+
+GetItem (flower_name) {
+
+ Alert.alert(flower_name);
+
+ }
+
+
+ componentDidMount() {
+
+   return fetch('http://robotixnitrr.org/workshop.php')
+     .then((response) => response.json())
+     .then((responseJson) => {
+       let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+       this.setState({
+         isLoading: false,
+         dataSource: ds.cloneWithRows(responseJson),
+       }, function() {
+         // In this block you can do something with new state.
+       });
+     })
+     .catch((error) => {
+       console.error(error);
+     });
+ }
+
+ ListViewItemSeparator = () => {
+   return (
+     <View
+       style={{
+         height: .5,
+         width: "100%",
+         backgroundColor: "#000",
+       }}
+     />
+   );
+ }
+
+
+ render() {
+   if (this.state.isLoading) {
+     return (
+       <View style={{flex: 1, paddingTop: 20}}>
+         <ActivityIndicator />
+       </View>
+     );
+   }
+
+   return (
+
+     <View style={styles.MainContainer}>
+
+       <ListView
+
+         dataSource={this.state.dataSource}
+         style={{paddingRight: 10,}}
+         //renderSeparator= {this.ListViewItemSeparator}
+
+         renderRow={(rowData) =>
+        /*<Content>
+        <View>
+          <Thumbnail source={require('./appres/pics/Robo.png')}/>
+          <Text> Robotix Club</Text>
+        </View>
+          <Image source = {{ uri: rowData.image }} style={{height: 200, width: Dimensions.get('window').width, flex: 1}}/>
+          <Text onPress={this.GetItem.bind(this, rowData.name)} style={styles.textViewContainer} >{rowData.name}</Text>
+        </Content>*/
+        <Card style={{width: (Dimensions.get('window').width-50), flex:0, }} >
+          <CardItem style={{paddingTop:0, }}>
+          <Left>
+          <Thumbnail source={require('./appres/pics/Robo.png')}/>
+          <Text> Robotix Club, NITRR </Text>
+          </Left>
+          <Right/>
+          </CardItem >
+          <CardItem style={{paddingTop:0, }}>
+          <Image source = {{ uri: rowData.image }} style={{height: 200, width: (Dimensions.get('window').width-50), flex: 1}}/>
+          </CardItem>
+          <CardItem style={{paddingTop:0, }}>
+          <Text> {rowData.name}</Text>
+          </CardItem>
+        </Card>
+
+         }
+       />
+
+     </View>
+   );
+ }
+}
+
+const styles = StyleSheet.create({
+
+MainContainer :{
+
+// Setting up View inside content in Vertically center.
+//justifyContent: 'center',
+flex:1,
+//margin: 5,
+alignItems: 'center',
+paddingTop: (Platform.OS === 'ios') ? 20 : 0,
+
+},
+
+
+});
+
+export default Mainproject;

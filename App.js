@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
-import { AppRegistry, StyleSheet, ActivityIndicator, ListView, Text, View, Alert,Image, Platform} from 'react-native';
+import { AppRegistry, StyleSheet, ActivityIndicator,
+  ListView, Dimensions, View, Alert,Image, Platform} from 'react-native';
 
+import {Thumbnail, Container, Content, Left, Right, Text, Body, Card, CardItem} from 'native-base';
 class Mainproject extends Component {
 
  constructor(props) {
@@ -65,18 +67,34 @@ GetItem (flower_name) {
        <ListView
 
          dataSource={this.state.dataSource}
-
-         renderSeparator= {this.ListViewItemSeparator}
+         style={{paddingRight: 10,}}
+         //renderSeparator= {this.ListViewItemSeparator}
 
          renderRow={(rowData) =>
-
-        <View style={{flex:1, flexDirection: 'row'}}>
-
-          <Image source = {{ uri: rowData.image }} style={styles.imageViewContainer} />
-
-          <Text onPress={this.GetItem.bind(this, rowData.name)} style={styles.textViewContainer} >{rowData.name}</Text>
-
+        /*<Content>
+        <View>
+          <Thumbnail source={require('./appres/pics/Robo.png')}/>
+          <Text> Robotix Club</Text>
         </View>
+          <Image source = {{ uri: rowData.image }} style={{height: 200, width: Dimensions.get('window').width, flex: 1}}/>
+          <Text onPress={this.GetItem.bind(this, rowData.name)} style={styles.textViewContainer} >{rowData.name}</Text>
+        </Content>*/
+        <Card style={{width: (Dimensions.get('window').width-50), flex:0, }} >
+          <CardItem style={{paddingTop:0, }}>
+          <Left>
+          <Thumbnail source={require('./appres/pics/Robo.png')}/>
+          <Text> Robotix Club, NITRR </Text>
+          </Left>
+          <Right/>
+          </CardItem >
+          <CardItem style={{paddingTop:0, }}>
+          <Image source = {{ uri: rowData.image }} style={{height: 200, width: (Dimensions.get('window').width-50), flex: 1}}/>
+          </CardItem>
+          <CardItem style={{paddingTop:0, }}>
+          <Text> {rowData.name}</Text>
+          </CardItem>
+        </Card>
+
          }
        />
 
@@ -90,28 +108,14 @@ const styles = StyleSheet.create({
 MainContainer :{
 
 // Setting up View inside content in Vertically center.
-justifyContent: 'center',
+//justifyContent: 'center',
 flex:1,
-margin: 5,
+//margin: 5,
+alignItems: 'center',
 paddingTop: (Platform.OS === 'ios') ? 20 : 0,
 
 },
 
-imageViewContainer: {
-width: '50%',
-height: 100 ,
-margin: 10,
-borderRadius : 10
-
-},
-
-textViewContainer: {
-
-  textAlignVertical:'center',
-  width:'50%',
-  padding:20
-
-}
 
 });
 
