@@ -12,15 +12,16 @@ import material from './../native-base-theme/variables/material';
 import Entypo from 'react-native-vector-icons/Entypo';
 const HomeScreen = ({ navigation }) => (
  <StyleProvider style={getTheme(material)}>
-  <Container style={{paddingTop: Platform.OS === 'ios' ? 0 : Expo.Constants.statusBarHeight,}}>
+  <Container style={{paddingTop: Platform.OS === 'ios' ? 0 : Expo.Constants.statusBarHeight, }}>
     <Header hasTabs>
       <Left>
         <TouchableHighlight>
-        <Thumbnail small source={require('./pics/dvk.png')}/>
+        <Icon name = "ios-menu-outline" style={{color:'#3F51B5', paddingLeft:10,}}/>
         </TouchableHighlight>
       </Left>
       <Body>
-        <Text>Home</Text>
+        <Text>Robotix Club</Text>
+        <Text note> NIT RR </Text>
       </Body>
       <Right/>
     </Header>

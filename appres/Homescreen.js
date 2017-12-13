@@ -80,12 +80,12 @@ GetItem (flower_name) {
           <CardItem style={{paddingTop:0, }}>
           <Left>
           <Thumbnail source={require('./pics/Robo.png')}/>
-          <Text> Robotix Club, NITRR </Text>
+          <Text> Robotix Club, NIT RR </Text>
           </Left>
           <Right/>
           </CardItem >
           <CardItem style={{paddingTop:0, }}>
-          <Image source = {{ uri: rowData.image }} style={{height: 200, width: (Dimensions.get('window').width-50), flex: 1}}/>
+          <Image source = {{ uri: rowData.image }} style={{height: 220, width: (Dimensions.get('window').width-50), flex: 1}}/>
           </CardItem>
           <CardItem style={{paddingTop:0, }}>
           <Text> {rowData.name}</Text>
