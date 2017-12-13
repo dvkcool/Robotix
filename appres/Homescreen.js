@@ -14,11 +14,8 @@ class Mainproject extends Component {
  }
 
 GetItem (flower_name) {
-
  Alert.alert(flower_name);
-
  }
-
 
  componentDidMount() {
 
@@ -82,7 +79,7 @@ GetItem (flower_name) {
         <Card style={{width: (Dimensions.get('window').width-50), flex:0, }} >
           <CardItem style={{paddingTop:0, }}>
           <Left>
-          <Thumbnail source={require('./appres/pics/Robo.png')}/>
+          <Thumbnail source={require('./pics/Robo.png')}/>
           <Text> Robotix Club, NITRR </Text>
           </Left>
           <Right/>
@@ -104,19 +101,11 @@ GetItem (flower_name) {
 }
 
 const styles = StyleSheet.create({
-
 MainContainer :{
-
-// Setting up View inside content in Vertically center.
-//justifyContent: 'center',
 flex:1,
-//margin: 5,
 alignItems: 'center',
 paddingTop: (Platform.OS === 'ios') ? 20 : 0,
-
 },
-
-
 });
 
 export default Mainproject;

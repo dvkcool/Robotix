@@ -27,9 +27,6 @@ export default {
   btnDisabledBg: "#b5b5b5",
   btnDisabledClr: "#f1f1f1",
 
-  //Android
-  btnUppercaseAndroidText: true,
-
   // CheckBox
   CheckboxRadius: 0,
   CheckboxBorderWidth: 2,
@@ -149,22 +146,21 @@ export default {
   tabActiveBgColor: undefined,
 
   // Tab
-  tabDefaultBg: "#3F51B5",
-  topTabBarTextColor: "#b3c7f9",
-  topTabBarActiveTextColor: "#fff",
+  tabDefaultBg: "#fff",
+  topTabBarTextColor: "#606368",
+  topTabBarActiveTextColor: "#3190F6",
   topTabActiveBgColor: undefined,
-  topTabBarBorderColor: "#fff",
-  topTabBarActiveBorderColor: "#fff",
+  topTabBarBorderColor: "#3190F6",
+  topTabBarActiveBorderColor: "#3190F6",
 
   // Header
   toolbarBtnColor: "#fff",
-  toolbarDefaultBg: "#3F51B5",
+  toolbarDefaultBg: "#fff",
   toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
   toolbarIconSize: platform === "ios" ? 20 : 22,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
   toolbarInputColor: "#fff",
   searchBarHeight: platform === "ios" ? 30 : 40,
-  searchBarInputHeight: platform === "ios" ? 30 : 50,
   toolbarInverseBg: "#222",
   toolbarTextColor: "#fff",
   toolbarDefaultBorder: "#3F51B5",
@@ -214,6 +210,7 @@ export default {
   listBg: "#fff",
   listBorderColor: "#c9c9c9",
   listDividerBg: "#f4f4f4",
+  listItemHeight: 45,
   listBtnUnderlayColor: "#DDD",
 
   // Card
@@ -265,7 +262,7 @@ export default {
   subtitleColor: "#FFF",
 
   // New Variable
-  titleFontColor: "#FFF",
+  titleFontColor: "#000",
 
   // Other
   borderRadiusBase: 2,
