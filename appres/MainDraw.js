@@ -16,12 +16,11 @@ const HomeScreen = ({ navigation }) => (
     <Header hasTabs>
       <Left>
         <TouchableHighlight>
-        <Icon name = "ios-menu-outline" style={{color:'#3F51B5', paddingLeft:10,}}/>
+        <Icon name = "ios-menu-outline" style={{color:'#28B8E5', paddingLeft:10,}}/>
         </TouchableHighlight>
       </Left>
       <Body>
-        <Text>Robotix Club</Text>
-        <Text note> NIT RR </Text>
+        <Text style={{fontSize:20}}>Robotix Club</Text>
       </Body>
       <Right/>
     </Header>
@@ -29,9 +28,9 @@ const HomeScreen = ({ navigation }) => (
     <Tab heading={ <TabHeading><Icon name="ios-home" /></TabHeading>}>
     <Homescr />
     </Tab>
-    <Tab heading={ <TabHeading><TouchableHighlight onPress={() => navigation.navigate('Search')} ><Icon name="ios-search"/></TouchableHighlight></TabHeading>}  >
+    <Tab heading={ <TabHeading><TouchableHighlight onPress={() => navigation.navigate('Search')} ><Icon name="md-ionitron"/></TouchableHighlight></TabHeading>}  >
     </Tab>
-    <Tab heading={ <TabHeading><Icon name="ios-notifications-outline" /></TabHeading>}>
+    <Tab heading={ <TabHeading><Icon name="ios-flash" /></TabHeading>}>
     <Notification/>
     </Tab>
     <Tab heading={ <TabHeading><Icon name="ios-mail-outline" /></TabHeading>}>
@@ -40,11 +39,10 @@ const HomeScreen = ({ navigation }) => (
     </Tabs>
     <View>
     <Fab
-    style={{ backgroundColor: '#5067FF' }}
+    style={{ backgroundColor: 'orange' }}
     position="bottomRight">
-    <Entypo
-         name={'feather'}
-         size={26}/>
+    <Icon
+         name='md-bulb'/>
     </Fab>
     </View>
   </Container>

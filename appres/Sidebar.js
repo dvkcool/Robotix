@@ -45,41 +45,37 @@ export default class Sidebar extends Component{
                 <Text style={{color: 'grey',}}>@DVK_cool</Text>
               </CardItem>
               <CardItem>
-                <Text>
-                225 <Text style={{color: 'grey',}}> Following </Text> 56
-                <Text style={{color: 'grey',}}> Followers </Text>
-                </Text>
-              </CardItem>
-              <CardItem>
-                <Icon name='ios-person-outline'/>
+                <Icon name='ios-person'/>
                 <Text> Profile</Text>
               </CardItem>
               <CardItem>
-                <Icon name='ios-list-box-outline'/>
-                <Text> Lists</Text>
+                <Icon name='md-ionitron'/>
+                <Text> Robotics Project Tutorials</Text>
               </CardItem>
               <CardItem>
-                <Icon name='ios-flash-outline'/>
-                <Text> Moments</Text>
+                <Icon name='ios-flash'/>
+                <Text> Flash Quiz </Text>
               </CardItem>
               <CardItem>
-                <Icon name='ios-browsers-outline'/>
-                <Text> Highlights</Text>
+                <Icon name='md-contacts'/>
+                <Text> Our Team </Text>
               </CardItem>
               <CardItem>
-                <Text> Setting And Privacy</Text>
+                <Icon name='md-school'/>
+                <Text> Our Alumnus</Text>
               </CardItem>
               <CardItem>
-                <Text> Help Center</Text>
+                <Icon name='ios-cog'/>
+                <Text> About us </Text>
               </CardItem>
             </Card>
           <Footer style={{ backgroundColor: '#fff'}} >
-            <Left>
-              <Icon name='ios-moon-outline' style={{marginLeft: 10, color:'#28B8E5'}}/>
-            </Left>
-            <Right>
-              <Icon name='ios-apps-outline' style={{marginRight: 10 , color:'#28B8E5'}}/>
-            </Right>
+            <Card>
+            <CardItem>
+              <Icon name='ios-build' style={{marginLeft: 10, color:'#28B8E5'}}/>
+            <Text> Know the developer</Text>
+            </CardItem>
+            </Card>
           </Footer>
         </Container>
       );

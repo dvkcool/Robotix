@@ -79,7 +79,7 @@ GetItem (flower_name) {
         <Card style={{width: (Dimensions.get('window').width-50), flex:0, }} >
           <CardItem style={{paddingTop:0, }}>
           <Left>
-          <Thumbnail source={require('./pics/Robo.png')}/>
+          <Thumbnail  source={require('./pics/Robo.png')}/>
           <Text> Robotix Club, NIT RR </Text>
           </Left>
           <Right/>
